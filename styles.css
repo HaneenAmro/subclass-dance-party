@@ -5,7 +5,7 @@ body{
   margin: 0px;
   background-color:#444;
   font-size: 18px;
-  background-image: url('https://quidsup.net/wallpaper/abstract/Dance%20floor.jpg');
+  background-image: url('https://www.xmple.com/wallpaper/white-beehive-hexagon-yellow-honeycomb-1920x1080-c2-ffd700-f0f8ff-l2-14-181-a-45-f-5.svg');
   background-repeat: no-repeat;
 }
 body, a:link, a:visited, a:active{
@@ -22,36 +22,30 @@ body, a:link, a:visited, a:active{
 .title{
   background-color: #777;
 }
-.dancer {
+/*.dancer {
   border:10px solid red;
   border-radius:25px;
   width: 10px;
   height: 10px;
   background-color: red;
   position: absolute;
-}
+} */
 .blinkyDancer {
-  border:10px solid red;
-  width: 10px;
-  height: 10px;
-  border-radius:25px;
-  background-color: red;
+  height: 20%;
+  width: auto;
   position: absolute;
 }
-.growingDancer {
-  border: 10px solid green;
-  width: 10px;
-  height: 10px;
-  border-radius: 25px;
-  background-color: green;
+.spinningDancer {
+  min-height: 20px;
+  min-width: 20px;
+  height: 20%;
+  width: auto;
   position: absolute;
+  animation: rotation 2s infinite linear;
 }
 .crazyDancer {
-  border: 10px solid white;
-  width: 10px;
-  height: 10px;
-  border-radius: 25px;
-  background-color: white;
+  height: 100%;
+  width: auto;
   position: absolute;
 }
 /* .crazyDancer:hover {
@@ -59,10 +53,41 @@ body, a:link, a:visited, a:active{
   border: 10px solid black;
   transition-duration: .2s;
 } */
-/* .test {
-  height: 20px;
-  width: 20px;
-  border-radius: 25px;
-  background-color: white;
+.shake {
+  min-height: 20px;
+  min-width: 20px;
+  height: 20%;
+  width: auto;
   position: absolute;
-} */
+  animation: shake 2s cubic-bezier(.36, .07, .19, .97) both;
+  transform: translate(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}

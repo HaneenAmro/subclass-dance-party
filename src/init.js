@@ -20,7 +20,7 @@ $(document).ready(function() {
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
     // var dancerMakerFunction = MakeDancer();
-    console.log(dancerMakerFunction);
+    //console.log(dancerMakerFunction);
     // make a dancer with a random position
 
     var dancer = new dancerMakerFunction(
@@ -28,9 +28,44 @@ $(document).ready(function() {
       $('body').width() * Math.random(),
       Math.random() * 1000
     );
-
+    window.dancers.push(dancer);
     $('body').append(dancer.$node);
+
   });
+
+
+  $('.line-up').on('click', function(event) {
+    for (var i = 0; i < window.dancers.length; i++) {
+      window.dancers[i].lineUp();
+    }
+    // $('.dancer').css('top', '500px');
+    // console.log(window.dancers);
+  });
+
+  // $('.pair').on('click', function(event) {
+  //   for (var i = 0; i < window.dancers.length; i  2) {
+  //     if (window.dancers[i + 1]) {
+  //       var next = window.dancers[i + 1];
+  //       var current = window.dancers[i];
+  //     }
+  //     //Getting the selected nodes position
+  //     for (var j = 0; j < window.dancers.length; j++) {
+  //       //we can find the closest node by iterating through all of them
+
+  //       //if they are close then we move together
+
+  //     }
+  //   }
+  // });
 });
 
-//Theres some kind of problem naming dancer-maker-function-name
+//a^2 + b^2 = c^2 Equation
+
+//top^2 + left^2 = position^2
+//z = position^2
+//is (z > .25*screen .)
+
+// [x] [b]
+// [c] [a]
+
+//Subtract positions to find closest pairs

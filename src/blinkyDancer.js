@@ -23,11 +23,8 @@
 var MakeBlinkyDancer = function(top, left, timeBetweenSteps) {
 
   MakeDancer.call(this, top, left, timeBetweenSteps);
-  this._top = top;
-  console.log(top);
-  this._left = left;
-  this.$node = $('<div class="blinkyDancer"></div>');
-  console.log(top);
+  this.$node.addClass('blinkyDancer');
+  this.$node.attr('src', 'https://webstockreview.net/images/clipart-banner-bee-10.png');
 
 };
 
@@ -39,8 +36,12 @@ MakeBlinkyDancer.prototype.constructor = MakeBlinkyDancer;
 MakeBlinkyDancer.prototype.step = function() {
   MakeDancer.prototype.step.call(this);
   this.$node.toggle();
-
-  this.setPosition(this._top, this._left);
+  var node1 = this.$node;
+  this.$node.hover(function() {
+    node1.slideUp();
+  }, function() {
+    node1.slideDown();
+  });
 };
 
 
